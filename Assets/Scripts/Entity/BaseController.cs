@@ -6,6 +6,7 @@ using UnityEngine;
 public class BaseController : MonoBehaviour
 {
     protected Rigidbody2D _rigidbody;
+    protected AnimationHandler animationHandler;
 
     [SerializeField] private SpriteRenderer characterRenderer; // 캐릭터 스프라이트 이미지
     [SerializeField] private Transform weaponPivot; // 무기를 들었을때 위치
@@ -19,7 +20,7 @@ public class BaseController : MonoBehaviour
     private Vector2 knockback = Vector2.zero;
     private float knockbackDuration = 0.0f;
 
-    protected AnimationHandler animationHandler;
+    
 
 
     protected virtual void Awake()
