@@ -9,25 +9,38 @@ public class GameManager : MonoBehaviour
     static GameManager gameManager;
 
     public int Bastscore = 0;
+
+    public List<int> Rank;
+
     public static GameManager Instace { get { return gameManager; } }
     private void Awake()
     {
+        Rank = new List<int> { 0, 0, 0, 0 };
         if (dontDestroyObject.Contains(gameObject.name))
         {
             Destroy(gameObject);
             return;
         }
         gameManager = this;  
+
         dontDestroyObject.Add(gameObject.name);
         DontDestroyOnLoad(gameObject);
     }
 
     public void UpdateScore(int score)
     {
-        if (score > Bastscore)
+        for (int i = 0; i < Rank.Count - 1; i++)
         {
-            Bastscore = score;
+            if (score > Rank[i])
+            {
+                Rank[i + 2] = Rank[i+1];
+                Rank[i+1] = Rank[i];
+                Rank[i] = score;
+                break;
+            }
         }
+        Bastscore = Rank[0];
+
     }
 
 

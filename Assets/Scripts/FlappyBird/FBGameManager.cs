@@ -32,7 +32,6 @@ public class FBGameManager : MonoBehaviour
         uiManager.UpdateScore(0);
         BestScore();
 
-
     }
     private void Update()
     {

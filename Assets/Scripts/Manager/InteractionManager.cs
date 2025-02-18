@@ -5,9 +5,19 @@ using UnityEngine.SceneManagement;
 
 public class InteractionManager : MonoBehaviour
 {
-    private void OnCollisionEnter2D(Collision2D collision)
+    UIManager uimanager;
+
+    private void Awake()
+    {
+        uimanager = FindAnyObjectByType<UIManager>();
+    }
+    private void OnCollisionStay2D(Collision2D collision)
     {
         Debug.Log("Statue On");
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            uimanager.SetRankUI();
+        }
     }
 
 
