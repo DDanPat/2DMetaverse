@@ -16,11 +16,11 @@ public class Player : MonoBehaviour
 
     public bool godMode = false;
 
-    GameManager gameManager;
+    FBGameManager FBgameManager;
 
     private void Start()
     {
-        gameManager = GameManager.Instace;
+        FBgameManager = FBGameManager.Instace;
 
         animator = GetComponentInChildren<Animator>();
         _rigidbody = GetComponent<Rigidbody2D>();
@@ -44,7 +44,7 @@ public class Player : MonoBehaviour
                 //게임 재시작
                 if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
                 {
-                    gameManager.RestartGame();
+                    FBgameManager.RestartGame();
                 }
             }
             else
@@ -90,6 +90,6 @@ public class Player : MonoBehaviour
         deathCooldown = 1f;
 
         animator.SetInteger("IsDie",1);
-        gameManager.GameOver();
+        FBgameManager.GameOver();
     }
 }

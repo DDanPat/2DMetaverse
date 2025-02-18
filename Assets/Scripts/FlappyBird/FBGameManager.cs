@@ -3,24 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class GameManager : MonoBehaviour
+public class FBGameManager : MonoBehaviour
 {
-    static GameManager gameManager;
+    static FBGameManager FBgameManager;
 
-    public static GameManager Instace {  get { return gameManager; } }
+    public static FBGameManager Instace {  get { return FBgameManager; } }
 
     private int currentScore = 0;
 
     bool IsPause;
 
-    UIManager uiManager;
+    FBUIManager uiManager;
 
-    public UIManager UIManager { get { return uiManager; } }
+    public FBUIManager FBUIManager { get { return uiManager; } }
 
     private void Awake()
     {
-        gameManager = this;
-        uiManager = FindAnyObjectByType<UIManager>();
+        FBgameManager = this;
+        uiManager = FindAnyObjectByType<FBUIManager>();
         IsPause = true;
         Time.timeScale = 0;
     }

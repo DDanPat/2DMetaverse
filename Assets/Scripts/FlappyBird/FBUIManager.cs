@@ -4,7 +4,7 @@ using System.Dynamic;
 using TMPro;
 using UnityEngine;
 
-public class UIManager : MonoBehaviour
+public class FBUIManager : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI restartText;

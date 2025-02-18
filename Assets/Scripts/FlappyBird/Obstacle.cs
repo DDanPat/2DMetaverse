@@ -15,11 +15,11 @@ public class Obstacle : MonoBehaviour
 
     public float widthPadding = 4f;
 
-    GameManager gameManager;
+    FBGameManager FBgameManager;
 
     private void Start()
     {
-        gameManager = GameManager.Instace;
+        FBgameManager = FBGameManager.Instace;
     }
 
     public Vector3 SetRandomPlace(Vector3 LastPosition, int obstaclCount)
@@ -40,7 +40,7 @@ public class Obstacle : MonoBehaviour
     {
         Player player = collision.GetComponent<Player>();
         if (player != null)
-            gameManager.AddScore(1);
+            FBgameManager.AddScore(1);
         
     }
 }
