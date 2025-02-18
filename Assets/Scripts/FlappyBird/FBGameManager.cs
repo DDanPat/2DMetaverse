@@ -14,11 +14,13 @@ public class FBGameManager : MonoBehaviour
     bool IsPause;
 
     FBUIManager uiManager;
+    GameManager gameManager;
 
     public FBUIManager FBUIManager { get { return uiManager; } }
 
     private void Awake()
     {
+        gameManager = FindAnyObjectByType<GameManager>();
         FBgameManager = this;
         uiManager = FindAnyObjectByType<FBUIManager>();
         IsPause = true;
@@ -28,6 +30,9 @@ public class FBGameManager : MonoBehaviour
     private void Start()
     {
         uiManager.UpdateScore(0);
+        BestScore();
+
+
     }
     private void Update()
     {
@@ -46,6 +51,7 @@ public class FBGameManager : MonoBehaviour
     {
         Debug.Log("Game Over");
         uiManager.SetRestart();
+        RemoveScore(currentScore);
     }
 
     public void RestartGame()
@@ -58,5 +64,15 @@ public class FBGameManager : MonoBehaviour
         currentScore += score;
         Debug.Log("Score :" + currentScore);
         uiManager.UpdateScore(currentScore);
+    }
+
+    public void BestScore()
+    {  
+        uiManager.BestScore(gameManager.Bastscore);
+    }
+
+    public void RemoveScore(int score)
+    {
+        gameManager.UpdateScore(score);
     }
 }

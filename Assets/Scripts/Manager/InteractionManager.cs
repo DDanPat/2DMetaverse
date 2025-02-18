@@ -16,6 +16,7 @@ public class InteractionManager : MonoBehaviour
         Debug.Log("Potal On");
         if (Input.GetKeyDown(KeyCode.Space))
         {
+            Debug.Log("On Space");
             SceneLoadManager.instance.FlappyBirdSceneLoad();
         }
     }

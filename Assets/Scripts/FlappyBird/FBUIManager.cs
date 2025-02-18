@@ -7,6 +7,7 @@ using UnityEngine;
 public class FBUIManager : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
+    public TextMeshProUGUI bestscoreText;
     public TextMeshProUGUI restartText;
     public TextMeshProUGUI startText;
 
@@ -35,5 +36,10 @@ public class FBUIManager : MonoBehaviour
     public void UpdateScore(int score)
     {
         scoreText.text = score.ToString();
+    }
+
+    public void BestScore(int score)
+    {
+        bestscoreText.text = score.ToString();
     }
 }
