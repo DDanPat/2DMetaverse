@@ -11,6 +11,8 @@ public class GameManager : MonoBehaviour
 
     private int currentScore = 0;
 
+    bool IsPause;
+
     UIManager uiManager;
 
     public UIManager UIManager { get { return uiManager; } }
@@ -19,11 +21,25 @@ public class GameManager : MonoBehaviour
     {
         gameManager = this;
         uiManager = FindAnyObjectByType<UIManager>();
+        IsPause = true;
+        Time.timeScale = 0;
     }
 
     private void Start()
     {
         uiManager.UpdateScore(0);
+    }
+    private void Update()
+    {
+        if (IsPause)
+        {
+            if (Input.GetKeyUp(KeyCode.Space))
+            {
+                Time.timeScale = 1;
+                uiManager.Setstart();
+            }
+        }
+        
     }
 
     public void GameOver()

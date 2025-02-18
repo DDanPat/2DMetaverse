@@ -8,18 +8,25 @@ public class UIManager : MonoBehaviour
 {
     public TextMeshProUGUI scoreText;
     public TextMeshProUGUI restartText;
+    public TextMeshProUGUI startText;
 
     private void Start()
     {
         if (restartText == null)
             Debug.LogError("restrart text is null");
 
+        if (restartText == null)
+            Debug.LogError("strart text is null");
+
         if (scoreText == null)
             Debug.LogError("score text text is null");
 
         restartText.gameObject.SetActive(false);
     }
-
+    public void Setstart()
+    {
+        startText.gameObject.SetActive(false);
+    }
     public void SetRestart()
     {
         restartText.gameObject.SetActive(true);
