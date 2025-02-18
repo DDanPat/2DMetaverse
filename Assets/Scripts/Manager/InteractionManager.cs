@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class InteractionManager : MonoBehaviour
 {
@@ -9,8 +10,13 @@ public class InteractionManager : MonoBehaviour
         Debug.Log("Statue On");
     }
 
-    private void OnTriggerEnter2D(Collider2D collision)
+
+    private void OnTriggerStay2D(Collider2D collision)
     {
         Debug.Log("Potal On");
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            SceneManager.LoadScene("FlappyBird");
+        }
     }
 }
