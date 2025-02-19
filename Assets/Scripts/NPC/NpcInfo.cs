@@ -68,20 +68,6 @@ public class NpcInfo : MonoBehaviour
     }
 
 
-    public void GuideTalk()
-    {
-        int i = 0;
-
-        NpcTalk.text = npcTalkData.guidelist[i];
-        if (Input.GetKeyDown(KeyCode.Space))
-        {
-            i += 1;
-            NpcTalk.text = npcTalkData.guidelist[i];
-        }
-
-
-    }
-
     private void OnCollisionEnter2D(Collision2D collision)
     {
         if (collision.gameObject.tag == "Player")
