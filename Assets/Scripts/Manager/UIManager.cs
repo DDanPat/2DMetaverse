@@ -11,6 +11,8 @@ public class UIManager : MonoBehaviour
 
     public GameObject RankUI;
 
+    public GameObject NpcTalkUI;
+
     GameManager gameManager;
 
     private void Start()
@@ -23,6 +25,15 @@ public class UIManager : MonoBehaviour
     public void SetRankUI()
     {
         RankUI.SetActive(true);
+    }
+
+    public void SetOnNPCTalkUI()
+    {
+        NpcTalkUI.SetActive(true);
+    }
+    public void SetOffNPCTalkUI()
+    {
+        NpcTalkUI.SetActive(false);
     }
 
     public void UpdateRank()

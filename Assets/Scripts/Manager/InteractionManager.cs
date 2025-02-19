@@ -17,7 +17,6 @@ public class InteractionManager : MonoBehaviour
 
     private void Update()
     {
-
         if (statue)
         {
             if (Input.GetKeyDown(KeyCode.Space))
@@ -29,13 +28,14 @@ public class InteractionManager : MonoBehaviour
         {
             if (Input.GetKeyDown(KeyCode.Space))
             {
-                SceneManager.LoadScene("FlappyBird");
+                SceneLoadManager.instance.FlappyBirdSceneLoad();
             }
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
+        Debug.Log(collision.gameObject.name);
         if (collision.gameObject.tag == "Statue")
         {
             Debug.Log("Statue On");
@@ -45,8 +45,7 @@ public class InteractionManager : MonoBehaviour
 
     private void OnCollisionExit2D(Collision2D collision)
     {
-        Debug.Log("Statue Off");
-        statue = false;
+        if (statue == true) statue = false;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -60,8 +59,7 @@ public class InteractionManager : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Debug.Log("Potal off");
-        potal = false;
+        if (potal == true) potal = false;
     }
 
 }
