@@ -7,6 +7,7 @@ TagManager:
   - BackGround
   - Potal
   - Statue
+  - NPC
   layers:
   - Default
   - TransparentFX
