@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using System.Runtime.CompilerServices;
@@ -8,6 +9,7 @@ public class NpcTalkData : MonoBehaviour
     public List<string> elflist;
     public List<string> dwarflist;
     public List<string> humanlist;
+    public List<string> guidelist;
 
 
     private void Awake()
@@ -32,6 +34,13 @@ public class NpcTalkData : MonoBehaviour
     "너 같은 모험가가 또 나타날 줄이야. 지난번 녀석은 늑대한테 잡아먹혔지.",
     "정의? 명예? 다 좋지만, 빈 주머니엔 아무 소용 없지 않나?",
     "조심하게나, 밤이 되면 거리는 더 위험해지니까."};
+        guidelist = new List<string> {
+    "오! 새로운 얼굴이네? 처음 왔다면 내가 좀 알려줄게!\n\n[스페이스바를 눌러 다음 대화로 넘어갈 수 있다.]",
+    "저기 오른쪽에 보이는 포탈 보이지? 스페이스바를 눌러 상호작용하면 미니게임에 들어갈 수 있어! 실력을 시험해보는 거지. 꽤 재미있으니까 한 번 도전해보는 것도 나쁘지 않을 걸?  [계속]",
+    "그리고 바로 옆에 있는 커다란 동상, 눈에 띄지? 스페이스바를 눌러 상호작용하면 랭킹을 확인할 수 있어. 네가 얼마나 잘했는지, 다른 사람들은 얼마나 대단한지 확인할 수 있다고!  [계속]",
+    "자, 뭐부터 해볼래? 그냥 멍하니 서 있지 말고 한 번 움직여보라고! 하하!"};
     }
+        
+
 
 }

@@ -7,7 +7,8 @@ public enum NpcType
 {
     elf,
     dwarf,
-    human
+    human,
+    guide
 }
 
 public class NpcInfo : MonoBehaviour
@@ -21,6 +22,10 @@ public class NpcInfo : MonoBehaviour
     public TextMeshProUGUI NpcTalk;
 
     public string Name;
+
+    bool guideTalking = false;
+
+    int i = 0;
 
     private void Start()
     {
@@ -42,7 +47,39 @@ public class NpcInfo : MonoBehaviour
             case NpcType.human:
                 NpcTalk.text = npcTalkData.humanlist[selet];
                 break;
+            case NpcType.guide:
+                guideTalking = true;
+                i = 0;
+                break;
         }
+    }
+
+    private void Update()
+    {
+        if (guideTalking)
+        {
+            NpcTalk.text = npcTalkData.guidelist[i];
+            if (Input.GetKeyDown(KeyCode.Space) && i < 4)
+            {
+                NpcTalk.text = npcTalkData.guidelist[i];
+                if (i < 3) i += 1;
+            }
+        }
+    }
+
+
+    public void GuideTalk()
+    {
+        int i = 0;
+
+        NpcTalk.text = npcTalkData.guidelist[i];
+        if (Input.GetKeyDown(KeyCode.Space))
+        {
+            i += 1;
+            NpcTalk.text = npcTalkData.guidelist[i];
+        }
+
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -60,6 +97,7 @@ public class NpcInfo : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         uimanager.SetOffNPCTalkUI();
+        if (guideTalking == true) guideTalking = false;
     }
 
 
