@@ -42,7 +42,7 @@ public class Player : MonoBehaviour
             if (deathCooldown <= 0)
             {
                 //게임 재시작
-                if (Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+                if (Input.GetKeyDown(KeyCode.Space))
                 {
                     FBgameManager.RestartGame();
                 }
@@ -54,7 +54,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if(Input.GetKeyDown(KeyCode.Space) || Input.GetMouseButtonDown(0))
+            if(Input.GetKeyDown(KeyCode.Space))
             {
                 isFlap = true;
             }
