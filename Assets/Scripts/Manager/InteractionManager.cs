@@ -6,6 +6,7 @@ using UnityEngine.SceneManagement;
 public class InteractionManager : MonoBehaviour
 {
     UIManager uimanager;
+    [SerializeField] private GameObject PotalOn;
 
     bool potal = false;
     bool statue = false;
@@ -53,13 +54,18 @@ public class InteractionManager : MonoBehaviour
         if (collision.gameObject.tag == "Potal")
         {
             Debug.Log("Potal On");
+            PotalOn.SetActive(true);
             potal = true;
         }
     }
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        if (potal == true) potal = false;
+        if (potal == true)
+        {
+            potal = false;
+            PotalOn.SetActive(false);
+        } 
     }
 
 }
