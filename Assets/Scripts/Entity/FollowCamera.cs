@@ -9,6 +9,9 @@ public class FollowCamera : MonoBehaviour
     float offsetX;
     float offsetY;
 
+    [SerializeField] Vector2 minCameraBoundary;
+    [SerializeField] Vector2 maxCameraBoundary;
+
     void Start()
     {
         if (target == null)
@@ -27,8 +30,8 @@ public class FollowCamera : MonoBehaviour
 
         if (SceneManager.GetActiveScene().name == "MainScene")
         {
-            pos.x = target.position.x + offsetX;
-            pos.y = target.position.y + offsetY;
+            pos.x = Mathf.Clamp(target.position.x, minCameraBoundary.x, maxCameraBoundary.x) + offsetX;
+            pos.y = Mathf.Clamp(target.position.y, minCameraBoundary.y, maxCameraBoundary.y) + offsetY;
         }
         else if (SceneManager.GetActiveScene().name == "FlappyBird")
         {
