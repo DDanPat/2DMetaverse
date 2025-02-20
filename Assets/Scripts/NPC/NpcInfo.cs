@@ -9,7 +9,8 @@ public enum NpcType
     dwarf,
     human,
     guide,
-    Ignarius // 전설의 영웅의 검
+    Ignarius, // 전설의 영웅의 검
+    barrier
 }
 
 public class NpcInfo : MonoBehaviour
@@ -56,6 +57,9 @@ public class NpcInfo : MonoBehaviour
             case NpcType.Ignarius:
                 IgnariusTalking = true;
                 i = 0;
+                break;
+            case NpcType.barrier:
+                NpcTalk.text = npcTalkData.barrierlist[selet];
                 break;
         }
     }
