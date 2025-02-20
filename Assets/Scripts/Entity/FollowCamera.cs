@@ -9,8 +9,8 @@ public class FollowCamera : MonoBehaviour
     float offsetX;
     float offsetY;
 
-    [SerializeField] Vector2 minCameraBoundary;
-    [SerializeField] Vector2 maxCameraBoundary;
+    [SerializeField] Vector2 minCameraBoundary; // 카메라 최소 이동 좌표
+    [SerializeField] Vector2 maxCameraBoundary; // 카메라 최대 이동 좌표
 
     void Start()
     {

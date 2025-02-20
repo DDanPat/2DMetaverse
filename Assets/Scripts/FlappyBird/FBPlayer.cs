@@ -2,13 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : MonoBehaviour
+public class FBPlayer : MonoBehaviour
 {
     Animator animator;
     Rigidbody2D _rigidbody;
 
-    public float flapForce = 6f;
-    public float forwardSpeed = 3f;
+    public float flapForce = 6f; //점프 힘
+    public float forwardSpeed = 3f; // 이동 속도
     public bool isDead = false;
     float deathCooldown = 0f;
 

@@ -38,7 +38,7 @@ public class Obstacle : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D collision)
     {
-        Player player = collision.GetComponent<Player>();
+        FBPlayer player = collision.GetComponent<FBPlayer>();
         if (player != null && player.isDead == false)
             FBgameManager.AddScore(1);
         

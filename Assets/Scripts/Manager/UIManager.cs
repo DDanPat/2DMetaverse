@@ -22,21 +22,21 @@ public class UIManager : MonoBehaviour
         UpdateRank();
     }
 
-    public void SetRankUI()
+    public void SetRankUI() // 랭킹 UI 표시
     {
         RankUI.SetActive(true);
     }
 
-    public void SetOnNPCTalkUI()
+    public void SetOnNPCTalkUI() // NPC 대화창 표시
     {
         NpcTalkUI.SetActive(true);
     }
-    public void SetOffNPCTalkUI()
+    public void SetOffNPCTalkUI() // NPC 대화창 닫기
     {
         NpcTalkUI.SetActive(false);
     }
 
-    public void UpdateRank()
+    public void UpdateRank() // 랭킹 순위 업데이트
     {
         rank1.text = gameManager.Rank[0].ToString();
         rank2.text = gameManager.Rank[1].ToString();

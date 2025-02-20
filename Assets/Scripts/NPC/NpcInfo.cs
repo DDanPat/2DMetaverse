@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
-public enum NpcType
+public enum NpcType // NPC 종족 선택
 {
     elf,
     dwarf,
@@ -38,7 +38,7 @@ public class NpcInfo : MonoBehaviour
 
     public void printText()
     {
-        int selet = Random.Range(0, 5);
+        int selet = Random.Range(0, 5); // 랜덤으로 NPC 대화말 선택
         switch (type)
         {
             case NpcType.elf:
@@ -66,10 +66,11 @@ public class NpcInfo : MonoBehaviour
 
     private void Update()
     {
+        // 스페이스바를 눌러 다음 대화 넘어가기
         if (guideTalking)
         {
             NpcTalk.text = npcTalkData.guidelist[i];
-            if (Input.GetKeyDown(KeyCode.Space) && i < 4)
+            if (Input.GetKeyDown(KeyCode.Space) && i < npcTalkData.guidelist.Count)
             {
                 NpcTalk.text = npcTalkData.guidelist[i];
                 if (i < 3) i += 1;
@@ -78,7 +79,7 @@ public class NpcInfo : MonoBehaviour
         if (IgnariusTalking)
         {
             NpcTalk.text = npcTalkData.Ignariuslist[i];
-            if (Input.GetKeyDown(KeyCode.Space) && i < 2)
+            if (Input.GetKeyDown(KeyCode.Space) && i < npcTalkData.Ignariuslist.Count)
             {
                 NpcTalk.text = npcTalkData.Ignariuslist[i];
                 if (i < 1) i += 1;
@@ -89,13 +90,13 @@ public class NpcInfo : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
-        if (collision.gameObject.tag == "Player")
+        if (collision.gameObject.tag == "Player") // 플레이어와 충돌 이벤트가 발생하면 작동
         {
             printText();
             if (npcTalkData == null)
                 Debug.Log("this is null");
             NpcName.text = Name;
-            uimanager.SetOnNPCTalkUI();
+            uimanager.SetOnNPCTalkUI(); // uimanger에서 NPC 대화 UI 작동
         }
     }
 

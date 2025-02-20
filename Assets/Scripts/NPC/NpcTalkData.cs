@@ -6,6 +6,7 @@ using UnityEngine;
 
 public class NpcTalkData : MonoBehaviour
 {
+    //각 종족에 알맞는 대화 리스트
     public List<string> elflist;
     public List<string> dwarflist;
     public List<string> humanlist;
@@ -52,9 +53,6 @@ public class NpcTalkData : MonoBehaviour
     "너 같은 존재는 이 경계를 넘을 수 없어.",
     "너는 이곳의 법칙을 따를 수 없어. 이 길을 넘지 마.",
     "너와 나, 우리는 다르다. 너는 이곳을 지나갈 수 없어."};
-
-
-
     }
         
 

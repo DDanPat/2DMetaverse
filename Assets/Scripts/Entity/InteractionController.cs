@@ -7,8 +7,8 @@ using UnityEngine.SceneManagement;
 public class InteractionController : MonoBehaviour
 {
     UIManager uimanager;
-    [SerializeField] private GameObject PotalOn;
-    [SerializeField] private TextMeshProUGUI InteractionText;
+    [SerializeField] private GameObject PotalOn; // 포탈 불빛 오브젝트
+    [SerializeField] private TextMeshProUGUI InteractionText; // 상호작용 키 안내 텍스트
 
     bool potal = false;
     bool statue = false;
@@ -27,14 +27,14 @@ public class InteractionController : MonoBehaviour
                 uimanager.SetRankUI();
                 InteractionText.gameObject.SetActive(false);
             }
-            if (potal) SceneLoadManager.instance.FlappyBirdSceneLoad();
+            if (potal) SceneLoadManager.instance.FlappyBirdSceneLoad(); //플래피버드 미니게임 씬으로 이동
         }
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
     {
         Debug.Log(collision.gameObject.name);
-        if (collision.gameObject.tag == "Statue")
+        if (collision.gameObject.tag == "Statue") // 동상과 충돌 이벤트가 작동 했을 때
         {
             Debug.Log("Statue On");
             InteractionText.gameObject.SetActive(true);
@@ -50,7 +50,7 @@ public class InteractionController : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.gameObject.tag == "Potal")
+        if (collision.gameObject.tag == "Potal") // 포탈과 충돌 이벤트 작동 했을 때
         {
             Debug.Log("Potal On");
             InteractionText.gameObject.SetActive(true);
