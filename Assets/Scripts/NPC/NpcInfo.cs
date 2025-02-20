@@ -8,7 +8,8 @@ public enum NpcType
     elf,
     dwarf,
     human,
-    guide
+    guide,
+    Ignarius // 전설의 영웅의 검
 }
 
 public class NpcInfo : MonoBehaviour
@@ -24,6 +25,7 @@ public class NpcInfo : MonoBehaviour
     public string Name;
 
     bool guideTalking = false;
+    bool IgnariusTalking = false;
 
     int i = 0;
 
@@ -51,6 +53,10 @@ public class NpcInfo : MonoBehaviour
                 guideTalking = true;
                 i = 0;
                 break;
+            case NpcType.Ignarius:
+                IgnariusTalking = true;
+                i = 0;
+                break;
         }
     }
 
@@ -63,6 +69,15 @@ public class NpcInfo : MonoBehaviour
             {
                 NpcTalk.text = npcTalkData.guidelist[i];
                 if (i < 3) i += 1;
+            }
+        }
+        if (IgnariusTalking)
+        {
+            NpcTalk.text = npcTalkData.Ignariuslist[i];
+            if (Input.GetKeyDown(KeyCode.Space) && i < 2)
+            {
+                NpcTalk.text = npcTalkData.Ignariuslist[i];
+                if (i < 1) i += 1;
             }
         }
     }

@@ -10,7 +10,7 @@ public class NpcTalkData : MonoBehaviour
     public List<string> dwarflist;
     public List<string> humanlist;
     public List<string> guidelist;
-
+    public List<string> Ignariuslist;
 
     private void Awake()
     {
@@ -39,6 +39,9 @@ public class NpcTalkData : MonoBehaviour
     "저기 오른쪽에 보이는 포탈 보이지? 스페이스바를 눌러 상호작용하면 미니게임에 들어갈 수 있어! 실력을 시험해보는 거지. 꽤 재미있으니까 한 번 도전해보는 것도 나쁘지 않을 걸?  [계속]",
     "그리고 바로 옆에 있는 커다란 동상, 눈에 띄지? 스페이스바를 눌러 상호작용하면 랭킹을 확인할 수 있어. 네가 얼마나 잘했는지, 다른 사람들은 얼마나 대단한지 확인할 수 있다고!  [계속]",
     "자, 뭐부터 해볼래? 그냥 멍하니 서 있지 말고 한 번 움직여보라고! 하하!"};
+        Ignariuslist = new List<string> {
+    "이그나리우스... 왕국의 마지막 방패였으며, 어둠을 가른 검.\n\r이곳에 잠든 용사는 홀로 수천의 적을 막아냈고, 그 끝에서 왕국을 지켜냈다.\n\r전쟁이 끝난 뒤, 그는 검을 내려놓았고, 사람들은 이곳을 성지로 삼았다.  [계속]",
+    "\r그러나 검은 아직도 미세하게 떨리고 있다.\r\n그것은 새로운 주인을 기다리는 것인가, 아니면 과거의 기억을 속삭이고 있는 것인가?" };
     }
         
 
