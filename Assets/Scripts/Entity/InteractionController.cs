@@ -22,12 +22,13 @@ public class InteractionController : MonoBehaviour
     {
         if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (statue) uimanager.SetRankUI();
+            if (statue)
+            {
+                uimanager.SetRankUI();
+                InteractionText.gameObject.SetActive(false);
+            }
             if (potal) SceneLoadManager.instance.FlappyBirdSceneLoad();
         }
-
-        if (statue || potal) InteractionText.gameObject.SetActive(true);
-        else InteractionText.gameObject.SetActive(false);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
@@ -36,6 +37,7 @@ public class InteractionController : MonoBehaviour
         if (collision.gameObject.tag == "Statue")
         {
             Debug.Log("Statue On");
+            InteractionText.gameObject.SetActive(true);
             statue = true;
         }
     }
@@ -43,6 +45,7 @@ public class InteractionController : MonoBehaviour
     private void OnCollisionExit2D(Collision2D collision)
     {
         if (statue == true) statue = false;
+        InteractionText.gameObject.SetActive(false);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -50,6 +53,7 @@ public class InteractionController : MonoBehaviour
         if (collision.gameObject.tag == "Potal")
         {
             Debug.Log("Potal On");
+            InteractionText.gameObject.SetActive(true);
             PotalOn.SetActive(true);
             potal = true;
         }
@@ -60,6 +64,7 @@ public class InteractionController : MonoBehaviour
         if (potal == true)
         {
             potal = false;
+            InteractionText.gameObject.SetActive(false);
             PotalOn.SetActive(false);
         } 
     }

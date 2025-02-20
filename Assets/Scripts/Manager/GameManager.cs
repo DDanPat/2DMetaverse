@@ -15,7 +15,7 @@ public class GameManager : MonoBehaviour
     public static GameManager Instace { get { return gameManager; } }
     private void Awake()
     {
-        Rank = new List<int> { 0, 0, 0, 0 };
+        Rank = new List<int> { 0, 0, 0, 0, 0 };
         if (dontDestroyObject.Contains(gameObject.name))
         {
             Destroy(gameObject);
@@ -29,12 +29,12 @@ public class GameManager : MonoBehaviour
 
     public void UpdateScore(int score)
     {
-        for (int i = 0; i < Rank.Count - 1; i++)
+        for (int i = 0; i < Rank.Count - 2; i++)
         {
             if (score > Rank[i])
             {
-                Rank[i + 2] = Rank[i+1];
-                Rank[i+1] = Rank[i];
+                Rank[i + 2] = Rank[i + 1];
+                Rank[i + 1] = Rank[i];
                 Rank[i] = score;
                 break;
             }
