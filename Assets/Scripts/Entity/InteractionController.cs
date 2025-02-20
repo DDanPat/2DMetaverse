@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-public class InteractionManager : MonoBehaviour
+public class InteractionController : MonoBehaviour
 {
     UIManager uimanager;
     [SerializeField] private GameObject PotalOn;
+    [SerializeField] private TextMeshProUGUI InteractionText;
 
     bool potal = false;
     bool statue = false;
@@ -18,20 +20,14 @@ public class InteractionManager : MonoBehaviour
 
     private void Update()
     {
-        if (statue)
+        if (Input.GetKeyDown(KeyCode.Space))
         {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                uimanager.SetRankUI();
-            }
+            if (statue) uimanager.SetRankUI();
+            if (potal) SceneLoadManager.instance.FlappyBirdSceneLoad();
         }
-        if (potal)
-        {
-            if (Input.GetKeyDown(KeyCode.Space))
-            {
-                SceneLoadManager.instance.FlappyBirdSceneLoad();
-            }
-        }
+
+        if (statue || potal) InteractionText.gameObject.SetActive(true);
+        else InteractionText.gameObject.SetActive(false);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
